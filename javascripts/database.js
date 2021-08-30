@@ -2,7 +2,7 @@ const db = new Dexie('LEMDatabase');
 
 db.version(1).stores({
     LEMs: '++id, client, location, PONumber, POLineItem, workDate',
-    LEMItems: '++id, LEMid, workOrder, quantity, rate, totalCost',
+    LEMItems: '++id, LEMid, workOrder, unit, quantity, rate, totalCost',
 });
 
 db.open().catch((e) => {

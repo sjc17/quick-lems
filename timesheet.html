@@ -100,6 +100,7 @@
             <table class="table">
               <col style="width: 7rem" />
               <col />
+              <col style="width: 3rem" />
               <col style="width: 5rem" />
               <col style="width: 5rem" />
               <col style="width: 5rem" />
@@ -107,6 +108,7 @@
                 <tr>
                   <th>Work Order</th>
                   <th>Description</th>
+                  <th>Unit</th>
                   <th>Quantity</th>
                   <th>Rate</th>
                   <th>Total Cost</th>
@@ -119,6 +121,9 @@
                   </td>
                   <td>
                     <input type="text" name="data[][description]" required />
+                  </td>
+                  <td>
+                    <input type="text" name="data[][unit]" required />
                   </td>
                   <td>
                     <input
@@ -147,6 +152,7 @@
                 </tr>
               </tbody>
             </table>
+            <div id="status-msg"></div>
             <button type="submit" id="submit-btn">Submit</button>
           </div>
         </div>
