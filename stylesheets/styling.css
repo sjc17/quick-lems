@@ -1,0 +1,9 @@
+/* Makes sure text inputs in the table cells don't extend past their cell */
+td > input {
+    width: 100%;
+}
+
+/* Overwrite Bootstrap's table styling to use a litte more of the space available */
+.table > :not(caption) > * > * {
+    padding: 0.2rem 0.2rem;
+}

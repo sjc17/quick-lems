@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" />
+    <link rel="stylesheet" href="stylesheets/styling.css" />
+    <title>Quick LEM - Timesheet</title>
+  </head>
+  <body>
+    <main>
+      <form
+        action="/timesheet.html"
+        method="post"
+        class="container gap-1 py-1 px-3"
+      >
+        <div class="row my-1">
+          <h1 class="text-center">Daily Timesheet</h1>
+        </div>
+        <div class="row my-1">
+          <!-- Client -->
+          <div class="col">
+            <label for="form-client">Client:</label>
+            <input
+              class="form-control"
+              type="text"
+              name="client"
+              id="form-client"
+              required
+            />
+          </div>
+          <!-- Location -->
+          <div class="col">
+            <label for="form-location">Location:</label>
+            <input
+              class="form-control"
+              type="text"
+              name="location"
+              id="form-location"
+              required
+            />
+          </div>
+        </div>
+        <div class="row my-1">
+          <!-- PO Number -->
+          <div class="col-6">
+            <label for="form-ponumber">PO Number:</label>
+            <input
+              type="text"
+              name="PONumber"
+              id="form-ponumber"
+              class="form-control"
+              required
+            />
+          </div>
+          <!-- PO Line Item -->
+          <div class="col-3">
+            <label for="form-poline">PO Line Item:</label>
+            <input
+              type="text"
+              name="POLineItem"
+              id="form-poline"
+              class="form-control"
+              maxlength="4"
+              required
+            />
+          </div>
+          <!-- Work Date -->
+          <div class="col-3">
+            <label for="form-workdate">Work Date:</label>
+            <input
+              class="form-control"
+              type="date"
+              name="workDate"
+              id="form-workdate"
+              required
+            />
+          </div>
+        </div>
+        <div class="row my-1"></div>
+        <!-- Comments -->
+        <div class="row my-1">
+          <div class="col">
+            <label for="form-comments">Comments:</label>
+            <textarea
+              class="form-control"
+              name="comments"
+              id="form-comments"
+              cols="30"
+              rows="2"
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Lines -->
+        <div class="row">
+          <div class="col">
+            <table class="table">
+              <col style="width: 7rem" />
+              <col />
+              <col style="width: 5rem" />
+              <col style="width: 5rem" />
+              <col style="width: 5rem" />
+              <thead>
+                <tr>
+                  <th>Work Order</th>
+                  <th>Description</th>
+                  <th>Quantity</th>
+                  <th>Rate</th>
+                  <th>Total Cost</th>
+                </tr>
+              </thead>
+              <tbody id="lem-body">
+                <tr id="lem-row0">
+                  <td>
+                    <input type="text" name="data[][workorder]" required />
+                  </td>
+                  <td>
+                    <input type="text" name="data[][description]" required />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="num-input"
+                      name="data[][quantity]"
+                      required
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="num-input"
+                      name="data[][rate]"
+                      required
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      name="data[][totalcost]"
+                      required
+                      readonly
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <button type="submit" id="submit-btn">Submit</button>
+          </div>
+        </div>
+      </form>
+    </main>
+    <footer class="text-center">By Steven Choi</footer>
+    <!-- Include dexie.js -->
+    <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+    <script src="/javascripts/database.js" type="module"></script>
+    <script src="/javascripts/timesheet.js" type="module"></script>
+  </body>
+</html>
