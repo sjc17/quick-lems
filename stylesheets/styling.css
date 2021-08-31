@@ -11,3 +11,13 @@ td > input {
 .delete-btn {
     cursor: pointer;
 }
+
+/* Hide arrows from number inputs */
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
