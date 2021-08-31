@@ -104,6 +104,7 @@
               <col style="width: 5rem" />
               <col style="width: 5rem" />
               <col style="width: 5rem" />
+              <col style="width: 1rem" />
               <thead>
                 <tr>
                   <th>Work Order</th>
@@ -112,48 +113,14 @@
                   <th>Quantity</th>
                   <th>Rate</th>
                   <th>Total Cost</th>
+                  <th></th>
                 </tr>
               </thead>
-              <tbody id="lem-body">
-                <tr id="lem-row0">
-                  <td>
-                    <input type="text" name="data[][workorder]" required />
-                  </td>
-                  <td>
-                    <input type="text" name="data[][description]" required />
-                  </td>
-                  <td>
-                    <input type="text" name="data[][unit]" required />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      class="num-input"
-                      name="data[][quantity]"
-                      required
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      class="num-input"
-                      name="data[][rate]"
-                      required
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      name="data[][totalcost]"
-                      required
-                      readonly
-                    />
-                  </td>
-                </tr>
+              <tbody>
               </tbody>
             </table>
-            
-            <div id="status-msg"></div>
+            <button type="button" id="addrow-btn">Add Row</button>
+            <div id="status-msg">&#160;</div>
             <button type="submit" id="submit-btn">Submit</button>
           </div>
         </div>
@@ -162,7 +129,7 @@
     <footer class="text-center">By Steven Choi</footer>
     <!-- Include dexie.js -->
     <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
-    <script src="/javascripts/database.js" type="module"></script>
-    <script src="/javascripts/timesheet.js" type="module"></script>
+    <script src="/javascripts/database.js" ></script>
+    <script src="/javascripts/timesheet.js"></script>
   </body>
 </html>

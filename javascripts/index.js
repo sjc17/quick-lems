@@ -1,5 +1,3 @@
-import db from "./database.js";
-
 window.onload = async function() {
     const arr = await db.LEMs.toArray();
     for (const obj of arr) {

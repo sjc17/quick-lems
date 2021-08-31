@@ -8,6 +8,6 @@ td > input {
     padding: 0.2rem 0.2rem;
 }
 
-#status-msg {
-    height: 1rem;
+.delete-btn {
+    cursor: pointer;
 }

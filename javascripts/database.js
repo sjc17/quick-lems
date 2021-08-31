@@ -8,5 +8,3 @@ db.version(1).stores({
 db.open().catch((e) => {
     console.error('Open failed: ' + e.stack);
 });
-
-export default db;
