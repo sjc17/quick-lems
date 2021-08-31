@@ -5,6 +5,7 @@ window.onload = async function () {
   const today = new Date().toISOString().substr(0, 10);
   document.querySelector('#form-workdate').value = today;
 
+  // Auto calculate total cost
   document.querySelectorAll('.num-input').forEach((node) => {
     node.addEventListener('input', (e) => {
       document.querySelector('input[name="data[][totalcost]"]').value =
@@ -16,6 +17,8 @@ window.onload = async function () {
   // Submit button behaviour (don't want default form submit)
   document.querySelector('#submit-btn').addEventListener('click', (e) => {
     e.preventDefault();
+
+    // If any required part of the form is not filled out
     if (!document.querySelector('form').checkValidity()) {
       console.log('Fill out all required fields.');
       return;
