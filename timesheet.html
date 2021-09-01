@@ -9,15 +9,34 @@
     <link rel="stylesheet" href="stylesheets/styling.css" />
     <title>Quick LEM - Timesheet</title>
   </head>
-  <body>
-    <main>
+  <body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a href="index.html" class="navbar-brand mb-0 h1">Quick LEMs Demo</a>
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Form</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Data</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Report</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main class="container my-1 bg-light flex-fill">
       <form
         action="/timesheet.html"
         method="post"
-        class="container gap-1 py-1 px-3"
+        class="gap-1 py-1 px-3"
       >
         <div class="row my-1">
-          <h1 class="text-center">Daily Timesheet</h1>
+          <h1 class="text-center">Daily Timesheet Form</h1>
         </div>
         <div class="row my-1">
           <!-- Client -->
@@ -79,7 +98,6 @@
             />
           </div>
         </div>
-        <div class="row my-1"></div>
         <!-- Comments -->
         <div class="row my-1">
           <div class="col">
@@ -93,7 +111,6 @@
             ></textarea>
           </div>
         </div>
-
         <!-- Lines -->
         <div class="row">
           <div class="col text-center">
@@ -177,7 +194,7 @@
         </div>
       </form>
     </main>
-    <footer class="text-center">By Steven Choi</footer>
+    <footer class="footer mt-auto d-flex justify-content-center align-items-center bg-light mt-auto">By Steven Choi</footer>
     <!-- Include dexie.js -->
     <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
     <script src="/javascripts/database.js"></script>

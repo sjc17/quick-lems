@@ -9,17 +9,28 @@
     <link rel="stylesheet" href="stylesheets/styling.css" />
     <title>Quick LEM</title>
   </head>
-  <body>
-    <main>
-      <a href="/timesheet.html">Timesheet</a>
-      LEMs
-      <ol>
-      </ol>
-      LEMitems
-      <ul>
-      </ul>
-    </main>
-    <footer class="text-center">By Steven Choi</footer>
+  <body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a href="index.html" class="navbar-brand mb-0 h1">Quick LEMs Demo</a>
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="timesheet.html">Form</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Data</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Report</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+      <main class="container my-1 bg-light flex-fill"></main>
+    <footer class="footer mt-auto d-flex justify-content-center align-items-center bg-light mt-auto">By Steven Choi</footer>
     <!-- Include dexie.js -->
     <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
     <script src="/javascripts/database.js"></script>
