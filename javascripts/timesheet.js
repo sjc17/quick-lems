@@ -34,11 +34,15 @@ window.onload = function () {
 
     // Get form data of LEM
     const formData = new FormData(document.querySelector('form'));
-    
+
     // Get form table data for LEM Items
     const tableData = [];
     // Iterate through table rows and collect data from inputs
-    for (let i = 0; i < document.querySelector('tbody').childElementCount; ++i) {      
+    for (
+      let i = 0;
+      i < document.querySelector('tbody').childElementCount;
+      ++i
+    ) {
       const cells = document.querySelector('tbody').children.item(i).children;
       const rowData = {
         workOrder: cells.item(0).firstElementChild.value.trim(),
@@ -73,12 +77,17 @@ window.onload = function () {
           unit: obj.unit.trim(),
           quantity: obj.quantity.trim(),
           rate: obj.rate.trim(),
-          totalCost: obj.totalCost
-        })
+          totalCost: obj.totalCost,
+        });
       }
-    }).catch((err) => {
-      console.error(err);
-    });
+    })
+      .catch((err) => {
+        sendAlert('Something went wrong with LEM creation.', 'danger');
+        console.error(err);
+      })
+      .then(() => {
+        sendAlert('Success! Your LEM has been created.', 'success');
+      });
   });
 
   document.querySelector('#addrow-btn').addEventListener('click', addRow);
@@ -113,4 +122,22 @@ function addRow() {
 }
 
 const newTableRow =
-'<tr> <td> <input type="text" required/> </td><td> <input type="text" required/> </td><td><input type="text" required/></td><td> <input type="text" class="num-input" required/> </td><td> <input type="text" class="num-input" required/> </td><td> <input type="text" required readonly/> </td><td class="delete-btn"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16" > <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/> <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/> </svg> </td></tr>';
+  '<tr> <td> <input type="text" required/> </td><td> <input type="text" required/> </td><td><input type="text" required/></td><td> <input type="text" class="num-input" required/> </td><td> <input type="text" class="num-input" required/> </td><td> <input type="text" required readonly/> </td><td class="delete-btn"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16" > <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/> <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/> </svg> </td></tr>';
+
+// Copied from Bootstrap's documentation
+function sendAlert(message, type) {
+  const wrapper = document.createElement('div');
+  wrapper.innerHTML =
+    '<div class="alert alert-' +
+    type +
+    ' alert-dismissible my-2" role="alert">' +
+    message +
+    '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+  document.querySelector('#liveAlertPlaceholder').append(wrapper);
+
+  document.querySelectorAll('.btn-close').forEach((node) => {
+    node.addEventListener('click', (e) => {
+      e.currentTarget.parentNode.remove();
+    });
+  });
+}
