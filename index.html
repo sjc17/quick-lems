@@ -29,8 +29,33 @@
         </ul>
       </div>
     </nav>
-      <main class="container my-1 bg-light flex-fill"></main>
-    <footer class="footer mt-auto d-flex justify-content-center align-items-center bg-light mt-auto">By Steven Choi</footer>
+    <main class="container my-1 p-3 bg-light flex-fill">
+      <h1 class="text-center">Quick LEM</h1>
+      <p>
+        A demo site for making electronic LEMs/Daily Timesheets.
+        <br>
+        Tech:
+        <ul>
+          <li>JavaScript: Vanilla ES6</li>        
+          <li>CSS: Bootstrap</li>
+          <li>Database: <a href="https://dexie.org/">Dexie.js (IndexedDB Wrapper)</a></li>
+        </ul>        
+      </p>
+
+    </main>
+    <footer
+      class="
+        footer
+        mt-auto
+        d-flex
+        justify-content-center
+        align-items-center
+        bg-light
+        mt-auto
+      "
+    >
+      By Steven Choi
+    </footer>
     <!-- Include dexie.js -->
     <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
     <script src="/javascripts/database.js"></script>
