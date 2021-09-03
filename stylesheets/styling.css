@@ -13,9 +13,9 @@ td > input {
 }
 
 /* Hide arrows from number inputs */
-input[type='number'] {
+/* input[type='number'] {
     -moz-appearance:textfield;
-}
+} */
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -24,4 +24,8 @@ input::-webkit-inner-spin-button {
 
 footer {
     height: 100px;
+}
+
+#addrow-input {
+    width: 3rem;
 }

@@ -11,7 +11,7 @@ window.onload = function () {
 
     // If any required part of the form is not filled out
     if (!document.querySelector('form').checkValidity()) {
-      alert('Fill out all required fields.');
+      sendAlert('Fill out all required fields.', 'danger');
       return;
     }
 
@@ -20,7 +20,7 @@ window.onload = function () {
       .querySelectorAll('input[name="data[][totalcost]"]')
       .forEach((node) => {
         if (costValidFlag && node.value === 'NaN') {
-          alert('Costs must be a valid number');
+          sendAlert('Costs must be valid numbers.', 'danger');
           costValidFlag = false;
         }
       });
@@ -28,7 +28,7 @@ window.onload = function () {
     if (!costValidFlag) return;
 
     if (document.querySelector('tbody').childElementCount === 0) {
-      alert('Must have at least one row in the LEM.');
+      sendAlert('Must have at least one row in the LEM.','danger');
       return;
     }
 
@@ -90,7 +90,11 @@ window.onload = function () {
       });
   });
 
-  document.querySelector('#addrow-btn').addEventListener('click', addRow);
+  document.querySelector('#addrow-btn').addEventListener('click', () => {
+    for (let i = document.querySelector('#addrow-input').value; i > 0; i--) {
+      addRow();
+    }
+  });
 };
 
 function addRow() {
