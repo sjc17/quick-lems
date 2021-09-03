@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="stylesheets/bootstrap.css" />
     <link rel="stylesheet" href="stylesheets/styling.css" />
-    <title>Quick LEM</title>
+    <title>Quick LEM - Data</title>
   </head>
   <body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-light bg-light">
@@ -15,13 +15,13 @@
         <a href="index.html" class="navbar-brand mb-0 h1">Quick LEMs Demo</a>
         <ul class="nav nav-pills">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="#">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="timesheet.html">Form</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="data.html">Data</a>
+            <a class="nav-link active" aria-current="page" href="data.html">Data</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="report.html">Report</a>
@@ -30,18 +30,29 @@
       </div>
     </nav>
     <main class="container my-1 p-3 bg-light flex-fill">
-      <h1 class="text-center">Quick LEM</h1>
-      <p>
-        A demo site for making electronic LEMs/Daily Timesheets.
-        <br>
-        Tech:
-        <ul>
-          <li>JavaScript: Vanilla ES6</li>        
-          <li>CSS: Bootstrap</li>
-          <li>Database: <a href="https://dexie.org/">Dexie.js (IndexedDB Wrapper)</a></li>
-        </ul>        
-      </p>
+      <h1 class="text-center">Data</h1>
+      <div class="row px-2">
+          <table class="table">
+              <col style="width: 20%" />
+              <col />
+              <col style="width: 10%" />
+              <col style="width: 20%" />
+              <col style="width: 20%" />
+              <thead>
+                  <tr>
+                      <th>Client</th>
+                      <th>PO</th>
+                      <th>Line</th>
+                      <th>Location</th>
+                      <th>Work Date</th>
+                  </tr>
+              </thead>
+              <tbody>
 
+              </tbody>
+          </table>
+      </div>
+      <div id="liveAlertPlaceholder"></div>
     </main>
     <footer
       class="
@@ -59,5 +70,7 @@
     <!-- Include dexie.js -->
     <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
     <script src="/javascripts/database.js"></script>
+    <script src="/javascripts/data.js"></script>
+    <script src="/javascripts/alert.js"></script>
   </body>
 </html>
